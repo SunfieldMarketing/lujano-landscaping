@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Plus Jakarta Sans", sans-serif;
+  --color-primary: #10b981;
+  /* emerald-500 */
+  --color-primary-light: #34d399;
+  /* emerald-400 */
+  --color-primary-dark: #064e3b;
+  /* emerald-900 */
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white text-gray-900;
+  }
+}
+
+.glass-morphism {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+}
+
+.premium-shadow {
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.08), 0 10px 20px -5px rgba(0, 0, 0, 0.04);
+}
+
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(to right, #064e3b, #10b981);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* ── GoHighLevel Embedded Form Styling ── */
+
+.estimate-card {
+  background: #ffffff;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+  position: relative;
+  max-width: 600px;
+  margin: auto;
+  overflow: hidden;
+}
+
+@media (min-width: 640px) {
+  .estimate-card {
+    padding: 40px;
+  }
+}
+
+.estimate-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 6px;
+  width: 100%;
+  background: #1e7d3c;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+}
+
+.ghl-form-wrap label {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #1f2937;
+}
+
+.ghl-form-wrap input,
+.ghl-form-wrap select {
+  padding: 14px 18px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  font-size: 16px;
+  margin-bottom: 18px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.ghl-form-wrap input:focus,
+.ghl-form-wrap select:focus {
+  outline: none;
+  border: 2px solid #1e7d3c;
+  background: white;
+}
+
+.ghl-form-wrap button {
+  width: 100%;
+  padding: 18px;
+  border-radius: 14px;
+  background: #10b981;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ghl-form-wrap button:hover {
+  background: #059669;
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px rgba(16, 185, 129, 0.4);
+}
+
+.ghl-form-wrap button:active {
+  transform: scale(0.98);
+}
+
+/* Tally iframe container */
+.ghl-iframe-container {
+  min-height: 762px;
+  width: 100%;
+}
+
+.ghl-iframe-container iframe {
+  width: 100% !important;
+  min-height: 762px;
+  border: none;
+  border-radius: 3px;
+}
+
+/* ── Geometric Background Patterns ── */
+
+.bg-circuit-board {
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%2310b981' fill-opacity='1'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.bg-diagonal-lines {
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm20 20h20v20H20V20zM0 20h20v20H0V20z' fill='%23000000' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.bg-diagonal-lines-light {
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm20 20h20v20H20V20zM0 20h20v20H0V20z' fill='%23ffffff' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.bg-dot-matrix {
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='2' cy='2' r='2' fill='%23000000' fill-opacity='1'/%3E%3C/svg%3E");
+}
+
+.bg-dot-matrix-light {
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='2' cy='2' r='2' fill='%23ffffff' fill-opacity='1'/%3E%3C/svg%3E");
+}
+
+.bg-grid-pattern {
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 40V0H0v40h40zM39 39H1V1h38v38z' fill='%23000000' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E");
+}
+
+.bg-grid-pattern-light {
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M40 40V0H0v40h40zM39 39H1V1h38v38z' fill='%23ffffff' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E");
+}

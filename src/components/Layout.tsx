@@ -1,0 +1,308 @@
+import React from 'react';
+import { 
+  Phone, 
+  MapPin, 
+  Menu, 
+  X, 
+  Facebook, 
+  Instagram, 
+  Mail,
+  MessageSquare,
+  ChevronDown
+} from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Link, useLocation } from 'react-router-dom';
+import { servicesData } from '../servicesData';
+
+export const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const isHome = location.pathname === '/';
+
+  return (
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-white/70 backdrop-blur-lg shadow-sm py-3 text-gray-800 border-b border-white/50' : 'bg-transparent py-5 text-white border-b border-white/10'}`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center">
+          <Link to="/" className="flex items-center">
+            <span className={`text-2xl font-bold tracking-tighter transition-colors ${scrolled ? 'text-primary-dark' : 'text-white'}`}>
+              Lujano <span className={scrolled ? 'text-primary' : 'text-primary-light'}>Landscaping Corp.</span>
+            </span>
+          </Link>
+          
+          <div className="hidden md:flex items-center space-x-8">
+            <Link to="/" className={`text-sm font-semibold transition-colors ${scrolled ? 'text-gray-700 hover:text-primary' : 'text-white/90 hover:text-white'}`}>Home</Link>
+            
+            <div className="relative" onMouseLeave={() => setServicesOpen(false)} onMouseEnter={() => setServicesOpen(true)}>
+              <div className="flex items-center">
+                {isHome ? (
+                  <a href="#services" className={`text-sm font-semibold transition-colors pr-1 ${scrolled ? 'text-gray-700 hover:text-primary' : 'text-white/90 hover:text-white'}`}>Services</a>
+                ) : (
+                  <Link to="/#services" className={`text-sm font-semibold transition-colors pr-1 ${scrolled ? 'text-gray-700 hover:text-primary' : 'text-white/90 hover:text-white'}`}>Services</Link>
+                )}
+                <button 
+                  onClick={() => setServicesOpen(!servicesOpen)}
+                  onMouseEnter={() => setServicesOpen(true)}
+                  className={`p-1 focus:outline-none transition-colors ${scrolled ? 'text-gray-700 hover:text-primary' : 'text-white/90 hover:text-white'}`}
+                >
+                  <ChevronDown size={16} className={`transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`} />
+                </button>
+              </div>
+
+              <AnimatePresence>
+                {servicesOpen && (
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    transition={{ duration: 0.2 }}
+                    className="absolute top-full left-0 pt-4"
+                  >
+                    <div className="w-64 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden">
+                      <div className="py-2">
+                      {servicesData.map(service => (
+                        <Link 
+                          key={service.id} 
+                          to={`/services/${service.slug}`}
+                          onClick={() => setServicesOpen(false)}
+                          className="block px-4 py-2.5 text-sm font-medium text-gray-700 hover:bg-green-50 hover:text-primary transition-colors"
+                        >
+                          {service.title}
+                        </Link>
+                      ))}
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {isHome ? (
+              <>
+                <Link to="/about" className={`text-sm font-semibold transition-colors ${scrolled ? 'text-gray-700 hover:text-primary' : 'text-white/90 hover:text-white'}`}>About</Link>
+                <Link to="/contact" className={`text-sm font-semibold transition-colors ${scrolled ? 'text-gray-700 hover:text-primary' : 'text-white/90 hover:text-white'}`}>Contact</Link>
+              </>
+            ) : (
+              <>
+                <Link to="/about" className={`text-sm font-semibold transition-colors ${scrolled ? 'text-gray-700 hover:text-primary' : 'text-white/90 hover:text-white'}`}>About</Link>
+                <Link to="/contact" className={`text-sm font-semibold transition-colors ${scrolled ? 'text-gray-700 hover:text-primary' : 'text-white/90 hover:text-white'}`}>Contact</Link>
+              </>
+            )}
+            <a 
+              href="tel:7547793714" 
+              className="bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-full text-sm font-bold flex items-center gap-2 transition-all shadow-lg shadow-primary/30 hover:-translate-y-0.5"
+            >
+              <Phone size={16} /> 754-779-3714
+            </a>
+          </div>
+
+          <div className="md:hidden">
+            <button onClick={() => setIsOpen(!isOpen)} className={`p-2 -mr-2 transition-colors ${scrolled ? 'text-primary-dark' : 'text-white'}`}>
+              {isOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div 
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden bg-white border-b border-gray-100 overflow-hidden shadow-xl absolute w-full"
+          >
+            <div className="px-4 pt-2 pb-6 space-y-2">
+              <Link to="/" onClick={() => setIsOpen(false)} className="block px-4 py-4 text-lg font-semibold text-gray-800 hover:bg-green-50 hover:text-primary rounded-xl transition-colors">Home</Link>
+              
+              <div className="block">
+                <div className="flex items-center justify-between px-4 py-4 hover:bg-green-50 rounded-xl transition-colors">
+                  {isHome ? (
+                    <a href="#services" onClick={() => setIsOpen(false)} className="text-lg font-semibold text-gray-800 flex-grow">Services</a>
+                  ) : (
+                    <Link to="/#services" onClick={() => setIsOpen(false)} className="text-lg font-semibold text-gray-800 flex-grow">Services</Link>
+                  )}
+                  <button onClick={() => setServicesOpen(!servicesOpen)} className="p-2 -mr-2 text-gray-800 hover:text-primary focus:outline-none">
+                    <ChevronDown size={24} className={`transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                </div>
+                <AnimatePresence>
+                  {servicesOpen && (
+                    <motion.div 
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      className="overflow-hidden bg-gray-50 rounded-xl mx-2 mt-1"
+                    >
+                      <div className="py-2">
+                        {servicesData.map(service => (
+                          <Link 
+                            key={service.id} 
+                            to={`/services/${service.slug}`}
+                            onClick={() => setIsOpen(false)}
+                            className="block px-6 py-3 text-base font-medium text-gray-700 hover:text-primary transition-colors"
+                          >
+                            {service.title}
+                          </Link>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {isHome ? (
+                <>
+                  <Link to="/about" onClick={() => setIsOpen(false)} className="block px-4 py-4 text-lg font-semibold text-gray-800 hover:bg-green-50 hover:text-primary rounded-xl transition-colors">About</Link>
+                  <Link to="/contact" onClick={() => setIsOpen(false)} className="block px-4 py-4 text-lg font-semibold text-gray-800 hover:bg-green-50 hover:text-primary rounded-xl transition-colors">Contact</Link>
+                </>
+              ) : (
+                <>
+                  <Link to="/about" onClick={() => setIsOpen(false)} className="block px-4 py-4 text-lg font-semibold text-gray-800 hover:bg-green-50 hover:text-primary rounded-xl transition-colors">About</Link>
+                  <Link to="/contact" onClick={() => setIsOpen(false)} className="block px-4 py-4 text-lg font-semibold text-gray-800 hover:bg-green-50 hover:text-primary rounded-xl transition-colors">Contact</Link>
+                </>
+              )}
+              <div className="pt-4 px-2">
+                <a 
+                  href="tel:7547793714" 
+                  className="w-full bg-primary text-white px-4 py-4 rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/20 active:scale-95 transition-transform"
+                >
+                  <Phone size={20} /> Call Now: 754-779-3714
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </nav>
+  );
+};
+
+export const Footer = () => {
+  return (
+    <footer className="bg-primary-dark text-white pt-24 pb-24 md:pb-12 relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary-light/30 to-transparent"></div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+          <div className="col-span-1 lg:col-span-1">
+            <span className="text-3xl font-bold tracking-tighter mb-6 block">
+              Lujano <span className="text-primary">Landscaping Corp.</span>
+            </span>
+            <p className="text-gray-400 mb-8 leading-relaxed">
+              Family-owned and operated landscaping company proudly serving residential and commercial properties in Broward County since 2008. * Hablamos Español *
+            </p>
+            <div className="flex gap-4">
+              <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                <Facebook size={20} />
+              </a>
+              <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+                <Instagram size={20} />
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="text-lg font-bold mb-6 text-white">Quick Links</h4>
+            <ul className="space-y-4 text-gray-400">
+              <li><Link to="/#services" className="hover:text-white transition-colors">Our Services</Link></li>
+              <li><Link to="/about" className="hover:text-white transition-colors">About Us</Link></li>
+              <li><Link to="/contact" className="hover:text-white transition-colors">Contact & Service Area</Link></li>
+              <li><Link to="/#faq" className="hover:text-white transition-colors">FAQ</Link></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg font-bold mb-6 text-white">Services</h4>
+            <ul className="space-y-4 text-gray-400">
+              <li>Landscape Contractor</li>
+              <li>Landscape Architect/Designer</li>
+              <li>General Contractor</li>
+              <li>Tree Service</li>
+              <li>Lawn Service</li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg font-bold mb-6 text-white">Contact Us</h4>
+            <ul className="space-y-4 text-gray-400">
+              <li className="flex items-start gap-3">
+                <MapPin className="text-primary flex-shrink-0 mt-1" size={20} />
+                <span>349 East Dayton Circle, Miramar, FL</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone className="text-primary flex-shrink-0" size={20} />
+                <a href="tel:7547793714" className="hover:text-white transition-colors">754-779-3714</a>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail className="text-primary flex-shrink-0" size={20} />
+                <a href="mailto:lujanolandscapingcorp@gmail.com" className="hover:text-white transition-colors">lujanolandscapingcorp@gmail.com</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-400">
+          <p>© {new Date().getFullYear()} Lujano Landscaping Corp. All rights reserved.</p>
+          <div className="flex gap-8">
+            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export const MobileWidget = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 300);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return (
+    <AnimatePresence>
+      {scrolled && (
+        <motion.div 
+          initial={{ y: 100 }}
+          animate={{ y: 0 }}
+          exit={{ y: 100 }}
+          className="fixed bottom-0 left-0 w-full z-50 md:hidden flex bg-white shadow-[0_-10px_30px_-10px_rgba(0,0,0,0.2)] border-t border-gray-200 pb-safe"
+        >
+          <a href="tel:7547793714" className="flex-1 flex flex-col items-center justify-center py-5 text-primary-dark font-bold border-r border-gray-200 hover:bg-gray-50 active:bg-gray-100 transition-colors">
+            <Phone size={24} className="mb-1" />
+            <span className="text-sm">Call Now</span>
+          </a>
+          <a href="sms:7547793714" className="flex-1 flex flex-col items-center justify-center py-5 text-primary font-bold hover:bg-gray-50 active:bg-gray-100 transition-colors">
+            <MessageSquare size={24} className="mb-1" />
+            <span className="text-sm">Text Us</span>
+          </a>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+};
+
+export const Layout = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <div className="min-h-screen font-sans text-gray-900 bg-white selection:bg-primary/20 selection:text-primary-dark pb-16 md:pb-0">
+      <Navbar />
+      <main>{children}</main>
+      <Footer />
+      <MobileWidget />
+      <div id="ghl-chat-widget-container"></div>
+    </div>
+  );
+};
