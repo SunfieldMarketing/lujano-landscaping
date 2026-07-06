@@ -301,12 +301,12 @@ const SocialProof = () => {
   const reviews = [
     {
       name: "Lia M.",
-      text: "Their customer service is top tier!! They've done free same-day estimates for me and are super budget friendly compared to other companies. Specifically Eric's the best!",
+      text: "Their customer service is top tier!! They've done free same-day estimates for me and are super budget friendly compared to other companies. The team is the best!",
       role: "Homeowner in Fort Lauderdale"
     },
     {
       name: "Richard A.",
-      text: "Feel free to reach out to Eric! He has a summer special right now where it's only $35. Make sure to mention it!! Prompt and professional service.",
+      text: "Feel free to reach out to the team! They have a summer special right now where it's only $35. Make sure to mention it!! Prompt and professional service.",
       role: "Homeowner in Davie"
     },
     {
