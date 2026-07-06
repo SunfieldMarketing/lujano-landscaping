@@ -98,10 +98,10 @@ export const Navbar = () => {
               </>
             )}
             <a 
-              href="tel:7547793714" 
+              href="tel:9546657658" 
               className="bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-full text-sm font-bold flex items-center gap-2 transition-all shadow-lg shadow-primary/30 hover:-translate-y-0.5"
             >
-              <Phone size={16} /> 754-779-3714
+              <Phone size={16} /> (954) 665-7658
             </a>
           </div>
 
@@ -174,10 +174,10 @@ export const Navbar = () => {
               )}
               <div className="pt-4 px-2">
                 <a 
-                  href="tel:7547793714" 
+                  href="tel:9546657658" 
                   className="w-full bg-primary text-white px-4 py-4 rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg shadow-primary/20 active:scale-95 transition-transform"
                 >
-                  <Phone size={20} /> Call Now: 754-779-3714
+                  <Phone size={20} /> Call Now: (954) 665-7658
                 </a>
               </div>
             </div>
@@ -236,12 +236,12 @@ export const Footer = () => {
             <h4 className="text-lg font-bold mb-6 text-white">Contact Us</h4>
             <ul className="space-y-4 text-gray-400">
               <li className="flex items-start gap-3">
-                <MapPin className="text-primary flex-shrink-0 mt-1" size={20} />
-                <span>349 East Dayton Circle, Miramar, FL</span>
+                <MapPin className="text-primary mt-1 flex-shrink-0" size={20} />
+                <span>349 E Dayton Circ, Fort Lauderdale, FL 33312</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="text-primary flex-shrink-0" size={20} />
-                <a href="tel:7547793714" className="hover:text-white transition-colors">754-779-3714</a>
+                <a href="tel:9546657658" className="hover:text-white transition-colors">(954) 665-7658</a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="text-primary flex-shrink-0" size={20} />
@@ -281,11 +281,11 @@ export const MobileWidget = () => {
           exit={{ y: 100 }}
           className="fixed bottom-0 left-0 w-full z-50 md:hidden flex bg-white shadow-[0_-10px_30px_-10px_rgba(0,0,0,0.2)] border-t border-gray-200 pb-safe"
         >
-          <a href="tel:7547793714" className="flex-1 flex flex-col items-center justify-center py-5 text-primary-dark font-bold border-r border-gray-200 hover:bg-gray-50 active:bg-gray-100 transition-colors">
+          <a href="tel:9546657658" className="flex-1 flex flex-col items-center justify-center py-5 text-primary-dark font-bold border-r border-gray-200 hover:bg-gray-50 active:bg-gray-100 transition-colors">
             <Phone size={24} className="mb-1" />
             <span className="text-sm">Call Now</span>
           </a>
-          <a href="sms:7547793714" className="flex-1 flex flex-col items-center justify-center py-5 text-primary font-bold hover:bg-gray-50 active:bg-gray-100 transition-colors">
+          <a href="sms:9546657658" className="flex-1 flex flex-col items-center justify-center py-5 text-primary font-bold hover:bg-gray-50 active:bg-gray-100 transition-colors">
             <MessageSquare size={24} className="mb-1" />
             <span className="text-sm">Text Us</span>
           </a>

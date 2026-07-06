@@ -44,7 +44,7 @@ export const ContactPage = () => {
                     </div>
                     <div>
                       <h4 className="text-lg font-bold text-gray-900 mb-1">Phone</h4>
-                      <a href="tel:7547793714" className="text-gray-600 hover:text-primary transition-colors text-lg">754-779-3714</a>
+                      <a href="tel:9546657658" className="text-gray-600 hover:text-primary transition-colors text-lg">(954) 665-7658</a>
                     </div>
                   </div>
                   
@@ -64,7 +64,7 @@ export const ContactPage = () => {
                     </div>
                     <div>
                       <h4 className="text-lg font-bold text-gray-900 mb-1">Service Area</h4>
-                      <p className="text-gray-600 text-lg">Broward County, Miramar, Davie, Pembroke Pines, Weston</p>
+                      <p className="text-gray-600 text-lg">Broward County, Fort Lauderdale, Davie, Pembroke Pines, Weston</p>
                     </div>
                   </div>
                 </div>

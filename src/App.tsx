@@ -69,10 +69,10 @@ const Hero = () => {
                 Get a Free Quote <ArrowRight size={20} />
               </a>
               <a
-                href="tel:7547793714"
+                href="tel:9546657658"
                 className="glass-morphism hover:bg-white text-gray-800 px-8 py-4 rounded-xl font-bold text-lg flex items-center justify-center gap-2 transition-all shadow-lg hover:-translate-y-1"
               >
-                <Phone size={20} className="text-primary" /> 754-779-3714
+                <Phone size={20} className="text-primary" /> (954) 665-7658
               </a>
             </div>
 
@@ -302,7 +302,7 @@ const SocialProof = () => {
     {
       name: "Lia M.",
       text: "Their customer service is top tier!! They've done free same-day estimates for me and are super budget friendly compared to other companies. Specifically Eric's the best!",
-      role: "Homeowner in Miramar"
+      role: "Homeowner in Fort Lauderdale"
     },
     {
       name: "Richard A.",
@@ -383,9 +383,9 @@ const ServiceArea = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <h2 className="text-primary-light font-bold tracking-widest uppercase text-sm mb-4">Service Area</h2>
-            <h3 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">Serving Miramar & Surrounding Areas</h3>
+            <h3 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">Serving Fort Lauderdale & Surrounding Areas</h3>
             <p className="text-lg text-green-50/80 mb-4 leading-relaxed">
-              Lujano Landscaping Corp. is a premier landscaping maintenance and construction company proudly serving Broward County, Miramar, and Davie. We specialize in transforming outdoor spaces with unmatched expertise and care.
+              Lujano Landscaping Corp. is a premier landscaping maintenance and construction company proudly serving Broward County and Fort Lauderdale. We specialize in transforming outdoor spaces with unmatched expertise and care.
             </p>
             <p className="text-lg text-green-50/80 mb-6 leading-relaxed">
               Whether you need a complete garden overhaul, reliable routine maintenance, or specialized tree care, our dedicated team brings passion and precision to every project. We don't just maintain yards; we cultivate outdoor experiences.
@@ -537,10 +537,10 @@ const HomePage = () => {
                   Get Started Now
                 </a>
                 <a
-                  href="tel:7547793714"
+                  href="tel:9546657658"
                   className="bg-transparent border-2 border-white/30 hover:border-white text-white px-8 sm:px-10 py-4 sm:py-5 rounded-2xl font-bold text-lg sm:text-xl transition-all"
                 >
-                  Call 754-779-3714
+                  Call (954) 665-7658
                 </a>
               </div>
 

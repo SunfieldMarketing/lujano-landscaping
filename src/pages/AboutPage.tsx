@@ -164,8 +164,8 @@ export const AboutPage = () => {
             <a href="/contact" className="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-xl shadow-primary/30 hover:-translate-y-1">
               Request a Free Quote
             </a>
-            <a href="tel:7547793714" className="glass-morphism hover:bg-white text-gray-800 px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg hover:-translate-y-1">
-              Call 754-779-3714
+            <a href="tel:9546657658" className="glass-morphism hover:bg-white text-gray-800 px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg hover:-translate-y-1">
+              Call (954) 665-7658
             </a>
           </div>
         </div>

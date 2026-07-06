@@ -138,8 +138,8 @@ export const ServicePage = () => {
 
                 <div className="mt-8 pt-8 border-t border-gray-100/50 text-center">
                   <p className="text-gray-500 text-sm mb-4">Prefer to call?</p>
-                  <a href="tel:7547793714" className="text-2xl font-bold text-primary-dark hover:text-primary transition-colors flex items-center justify-center gap-2">
-                    <Phone size={24} /> 754-779-3714
+                  <a href="tel:9546657658" className="text-2xl font-bold text-primary-dark hover:text-primary transition-colors flex items-center justify-center gap-2">
+                    <Phone size={24} /> (954) 665-7658
                   </a>
                 </div>
               </div>
@@ -186,8 +186,8 @@ export const ServicePage = () => {
             <Link to="/contact" className="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-xl shadow-primary/30 hover:-translate-y-1">
               Request a Free Quote
             </Link>
-            <a href="tel:7547793714" className="glass-morphism hover:bg-white text-gray-800 px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg hover:-translate-y-1">
-              Call 754-779-3714
+            <a href="tel:9546657658" className="glass-morphism hover:bg-white text-gray-800 px-8 py-4 rounded-xl font-bold text-lg transition-all shadow-lg hover:-translate-y-1">
+              Call (954) 665-7658
             </a>
           </div>
         </div>

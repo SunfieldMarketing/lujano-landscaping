@@ -67,7 +67,7 @@ export const servicesData: ServiceDetail[] = [
     ],
     icon: Lightbulb,
     img: "/img/service_mowing_1782917334934.png",
-    seoKeywords: ["landscape designer Miramar", "landscape architecture", "custom garden design", "outdoor space planning"]
+    seoKeywords: ["landscape designer Fort Lauderdale", "landscape architecture", "custom garden design", "outdoor space planning"]
   },
   {
     id: 'gardener',
@@ -133,7 +133,7 @@ export const servicesData: ServiceDetail[] = [
     ],
     icon: TreePine,
     img: "/img/service_tree_removal_1782917364743.png",
-    seoKeywords: ["tree service Miramar", "tree trimming Broward", "tree removal", "arborist services", "stump grinding"]
+    seoKeywords: ["tree service Fort Lauderdale", "tree trimming Broward", "tree removal", "arborist services", "stump grinding"]
   },
   {
     id: 'lawn-service',
@@ -155,6 +155,6 @@ export const servicesData: ServiceDetail[] = [
     ],
     icon: Leaf,
     img: "/img/service_tree_trimming_1782917349028.png",
-    seoKeywords: ["lawn service Davie", "grass cutting Miramar", "lawn maintenance Broward", "weekly mowing"]
+    seoKeywords: ["lawn service Davie", "grass cutting Fort Lauderdale", "lawn maintenance Broward", "weekly mowing"]
   }
 ];
